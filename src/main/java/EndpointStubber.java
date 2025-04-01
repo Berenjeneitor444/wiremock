@@ -7,7 +7,7 @@ public class EndpointStubber {
         stubFor(post(urlEqualTo("/reserva/crear"))
                 .willReturn(aResponse()
                         .withHeader("Content-Type", "application/json")
-                        .withBody("HelloWorld")));
+                        .withBody("")));
 
         stubFor(post(urlEqualTo("/reserva/listar"))
         .willReturn(aResponse()
