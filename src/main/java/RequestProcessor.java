@@ -6,7 +6,7 @@ import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
 public class RequestProcessor implements StubRequestFilterV2 {
     @Override
     public RequestFilterAction filter(Request request, ServeEvent serveEvent) {
-        //TODO: VALIDAR ENDPOINT Y JSON VALIDO
+        
     }
 
     @Override
