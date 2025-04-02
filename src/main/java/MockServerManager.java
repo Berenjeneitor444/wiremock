@@ -10,7 +10,7 @@ public class MockServerManager {
 
     // Inicia el servidor
     public void startServer() {
-        WireMockConfiguration config = WireMockConfiguration.options().port(8080).extensions(new DataProcessor());
+        WireMockConfiguration config = WireMockConfiguration.options().port(8080).extensions(new ResponseProcessor());
         wireMockServer = new WireMockServer(config);
         wireMockServer.start();
         System.out.println("WireMock Server started on port 8080");
