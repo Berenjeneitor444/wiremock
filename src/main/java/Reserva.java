@@ -1,5 +1,5 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.regex.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,6 +85,8 @@ public class Reserva {
 
     @JsonProperty("HoraBienv")
     private String horaBienv;
+
+    public Reserva(){}
 
     public String getHotel() {
         return hotel;
@@ -193,8 +195,112 @@ public class Reserva {
     public String getHoraBienv() {
         return horaBienv;
     }
-    public String[] validate(){
-        List<String> errores = new ArrayList<>();
-        // TODO: validar, llenar array de errores en cada campo pero no abortar
+
+    public void setHotel(String hotel) {
+        this.hotel = hotel;
+    }
+
+    public void setReservationNumber(String reservationNumber) {
+        this.reservationNumber = reservationNumber;
+    }
+
+    public void setCheckoutRealized(boolean checkoutRealized) {
+        this.checkoutRealized = checkoutRealized;
+    }
+
+    public void setCheckIn(String checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public void setLocalizador(String localizador) {
+        this.localizador = localizador;
+    }
+
+    public void setHotelFactura(String hotelFactura) {
+        this.hotelFactura = hotelFactura;
+    }
+
+    public void setNumReserva(String numReserva) {
+        this.numReserva = numReserva;
+    }
+
+    public void setBono(String bono) {
+        this.bono = bono;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    public void setHabitacion(String habitacion) {
+        this.habitacion = habitacion;
+    }
+
+    public void setThDescripcion(String thDescripcion) {
+        this.thDescripcion = thDescripcion;
+    }
+
+    public void setThUso(String thUso) {
+        this.thUso = thUso;
+    }
+
+    public void setSeccion(String seccion) {
+        this.seccion = seccion;
+    }
+
+    public void setTarifa(String tarifa) {
+        this.tarifa = tarifa;
+    }
+
+    public void setAd(int ad) {
+        this.ad = ad;
+    }
+
+    public void setNi(int ni) {
+        this.ni = ni;
+    }
+
+    public void setJr(int jr) {
+        this.jr = jr;
+    }
+
+    public void setCu(int cu) {
+        this.cu = cu;
+    }
+
+    public void setPreCheckIn(String preCheckIn) {
+        this.preCheckIn = preCheckIn;
+    }
+
+    public void setFechaEntrada(String fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
+    }
+
+    public void setFechaSalida(String fechaSalida) {
+        this.fechaSalida = fechaSalida;
+    }
+
+    public void setMotivoViaje(String motivoViaje) {
+        this.motivoViaje = motivoViaje;
+    }
+
+    public void setLlegadaHora(String llegadaHora) {
+        this.llegadaHora = llegadaHora;
+    }
+
+    public void setThFactura(String thFactura) {
+        this.thFactura = thFactura;
+    }
+
+    public void setBienvenida(String bienvenida) {
+        this.bienvenida = bienvenida;
+    }
+
+    public void setFechaBienv(String fechaBienv) {
+        this.fechaBienv = fechaBienv;
+    }
+
+    public void setHoraBienv(String horaBienv) {
+        this.horaBienv = horaBienv;
     }
 }

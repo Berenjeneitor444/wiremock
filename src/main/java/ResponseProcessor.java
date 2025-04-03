@@ -2,20 +2,40 @@ import com.github.tomakehurst.wiremock.extension.ResponseTransformerV2;
 import com.github.tomakehurst.wiremock.http.Response;
 import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
 
+import java.io.IOException;
+
 public class ResponseProcessor implements ResponseTransformerV2 {
 
     @Override
     public Response transform(Response response, ServeEvent serveEvent) {
-        String ResponseBody = "";
-        DataProcessor dataProcessor = new DataProcessor();
-        switch (serveEvent.getRequest().getUrl()){
-            case "reserva/crear": ResponseBody = dataProcessor.process(serveEvent.getRequest().getBody());
-            case "reserva/listar":;
-            case "huesped/crear":;
-            case "huesped/listar":;
+        byte[] responseBody;
+        BodyProcessor bodyProcessor = new BodyProcessor();
+        try {
+            switch (serveEvent.getRequest().getUrl()) {
+                case "reserva/crear":
+                    responseBody = bodyProcessor.reservaCrear(serveEvent.getRequest().getBody());
+                    break;
+                case "reserva/listar":
+                    responseBody = bodyProcessor.reservaListar(serveEvent.getRequest().getBody());
+                    break;
+                case "huesped/crear":
+                    responseBody = bodyProcessor.huespedCrear(serveEvent.getRequest().getBody());
+                    break;
+                case "huesped/listar":
+                    responseBody = bodyProcessor.huespedListar(serveEvent.getRequest().getBody());
+                    break;
+                default:
+                    throw new RuntimeException("not valid stub, shouldn't arrived here");
+            }
         }
-        //TODO: PASAR JSON DIRECTO O NO, COMO MANEJO LOS DATOS EN EL DATAPROCESOR, QUE TIPO DEBEN TENER, ETC...
-        return Response.Builder.like(response).but().body(ResponseBody).build();
+        // TODO: mejorar manejo de errores
+        catch (IOException ioe) {
+            throw new RuntimeException(ioe);
+        }
+        catch(RuntimeException e){
+            return Response.Builder.like(response).but().body(e.getMessage()).build();
+        }
+        return Response.Builder.like(response).but().body(responseBody).build();
     }
 
     @Override

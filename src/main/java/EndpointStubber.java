@@ -24,5 +24,6 @@ public class EndpointStubber {
                 .withHeader("Content-Type", "application/json")
                 .withBody("HelloWorld")));
 
+        //TODO: crear stubs programaticamente con lo que quiera el usuario (idea Toni)
     }
 }

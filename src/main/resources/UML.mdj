@@ -1152,7 +1152,7 @@
 											"top": 1079,
 											"width": 179.10888671875,
 											"height": 13,
-											"text": "DataProcessor"
+											"text": "BodyProcessor"
 										},
 										{
 											"_type": "LabelView",
@@ -4559,7 +4559,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "DataProcessor",
+					"name": "BodyProcessor",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
