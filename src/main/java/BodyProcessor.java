@@ -9,7 +9,7 @@ public class BodyProcessor {
     public byte[] reservaCrear(byte[] body) throws IOException {
         HashMap<String, Object> bodyResponse = new HashMap<>();
         Reserva reserva = objectMapper.readValue(body, Reserva.class);
-        ValidationResponseDTO errors = reserva.validate();
+        ValidationResponseDTO errors = DataValidator.reservaValidate(reserva);
         bodyResponse.put("result", (errors.isFatal()) ? "OK" : "KO" );
         bodyResponse.put("errors", errors.getErrors());
         bodyResponse.put("inserted-data", reserva);
